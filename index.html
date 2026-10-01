@@ -4,39 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For My Handsome Boy 🫶🏻</title>
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Sacramento&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+<!-- Separate CSS Link -->
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+​<!-- Floating Hearts Container -->
 <div id="hearts-container"></div>
+​<!-- Main Card -->
 <main class="card-container">
-<div class="tag">
+​<div class="tag">
 ✨ October 1st Special ✨
 </div>
+​<!-- Cute Hamster Vector Illustration -->
 <div class="image-wrapper">
 <div class="glow-bg"></div>
 <div class="illustration-box">
 <svg viewBox="0 0 300 300" class="hamster-svg">
 <circle cx="150" cy="150" r="130" fill="#FFF0F3" />
+<!-- Hamster Ears -->
 <circle cx="105" cy="85" r="28" fill="#F4B266"/>
 <circle cx="105" cy="85" r="18" fill="#FFCDB2"/>
 <circle cx="195" cy="85" r="28" fill="#F4B266"/>
 <circle cx="195" cy="85" r="18" fill="#FFCDB2"/>
+<!-- Hamster Body & Face -->
 <ellipse cx="150" cy="170" rx="80" ry="75" fill="#FDCB9E"/>
 <ellipse cx="150" cy="130" rx="70" ry="60" fill="#FDCB9E"/>
 <ellipse cx="150" cy="175" rx="50" ry="45" fill="#FFFFFF"/>
 <circle cx="105" cy="140" r="14" fill="#FFB4A2" opacity="0.6"/>
 <circle cx="195" cy="140" r="14" fill="#FFB4A2" opacity="0.6"/>
+<!-- Eyes & Mouth -->
 <path d="M 105 125 Q 115 115 125 125" stroke="#4A3E3D" stroke-width="4.5" stroke-linecap="round" fill="none"/>
 <circle cx="175" cy="122" r="7" fill="#4A3E3D"/>
 <circle cx="173" cy="120" r="2.5" fill="#FFFFFF"/>
 <polygon points="150,132 145,127 155,127" fill="#E88D8D"/>
 <path d="M 143 135 Q 150 142 150 137 Q 150 142 157 135" stroke="#4A3E3D" stroke-width="3" stroke-linecap="round" fill="none"/>
+<!-- Bow -->
 <path d="M 88 72 C 78 60, 78 85, 92 78 Z" fill="#FF85A1"/>
 <path d="M 108 72 C 118 60, 118 85, 104 78 Z" fill="#FF85A1"/>
 <circle cx="98" cy="75" r="6" fill="#FF477E"/>
+<!-- Bouquet -->
 <g transform="translate(130, 120)">
 <polygon points="20,50 65,15 75,70" fill="#D8B18A"/>
 <polygon points="20,50 75,70 10,75" fill="#C69C72"/>
@@ -47,19 +57,23 @@
 <circle cx="55" cy="38" r="13" fill="#A4133C"/>
 <path d="M 15 25 Q 5 20 12 10 Q 20 15 15 25 Z" fill="#52B788"/>
 </g>
+<!-- Paws -->
 <ellipse cx="120" cy="175" rx="12" ry="10" fill="#FDCB9E" transform="rotate(-15 120 175)"/>
 <ellipse cx="182" cy="175" rx="12" ry="10" fill="#FDCB9E" transform="rotate(15 182 175)"/>
 </svg>
 </div>
 </div>
+​<!-- Heading Text -->
 <div class="title-box">
 <h1 class="main-title">For My Handsome Boy</h1>
 <div class="emojis">🫶🏻 💋</div>
 </div>
+​<!-- Clickable Button -->
 <button id="openMsgBtn" class="btn-message" onclick="openMessageModal(event)">
 <span>Click here to see a message ✨</span>
 </button>
-</main>
+​</main>
+​<!-- Modal Pop-up -->
 <div id="messageModal" class="modal-backdrop">
 <div id="modalCard" class="modal-card">
 <button class="close-btn" onclick="closeMessageModal()">✕</button>
@@ -73,27 +87,29 @@
 <button class="btn-close-action" onclick="closeMessageModal()">Close with Love 🥰</button>
 </div>
 </div>
-<script>
+​<script>
+// Background Floating Hearts Animation
 function createFloatingHearts() {
 const container = document.getElementById('hearts-container');
 const heartIcons = ['💖', '💗', '💕', '🌸', '✨', '❤️', '💌'];
-setInterval(() => {
+​setInterval(() => {
 const heart = document.createElement('div');
 heart.className = 'heart-particle';
-const randomIcon = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+​const randomIcon = heartIcons[Math.floor(Math.random() * heartIcons.length)];
 const randomLeft = Math.random() * 100;
 const randomSize = Math.random() * 1.2 + 0.8;
 const randomDuration = Math.random() * 4 + 5;
-heart.innerHTML = randomIcon;
+​heart.innerHTML = randomIcon;
 heart.style.left = randomLeft + 'vw';
 heart.style.fontSize = randomSize + 'rem';
 heart.style.animationDuration = randomDuration + 's';
-container.appendChild(heart);
-setTimeout(() => {
+​container.appendChild(heart);
+​setTimeout(() => {
 heart.remove();
 }, randomDuration * 1000);
 }, 350);
 }
+​// Heart Burst on Button Click
 function createHeartBurst(x, y) {
 const burstCount = 15;
 for (let i = 0; i < burstCount; i++) {
@@ -106,41 +122,42 @@ particle.style.pointerEvents = 'none';
 particle.style.zIndex = '100';
 particle.style.fontSize = '1.2rem';
 particle.style.transition = 'all 0.8s ease-out';
-document.body.appendChild(particle);
-const angle = (i / burstCount) * 360;
+​document.body.appendChild(particle);
+​const angle = (i / burstCount) * 360;
 const velocity = Math.random() * 100 + 50;
 const vx = Math.cos(angle * Math.PI / 180) * velocity;
 const vy = Math.sin(angle * Math.PI / 180) * velocity;
-requestAnimationFrame(() => {
+​requestAnimationFrame(() => {
 particle.style.transform = translate(${vx}px, ${vy}px) scale(0);
 particle.style.opacity = '0';
 });
-setTimeout(() => particle.remove(), 800);
+​setTimeout(() => particle.remove(), 800);
 }
 }
+​// Modal Handlers
 function openMessageModal(e) {
 if (e) createHeartBurst(e.clientX, e.clientY);
-const modal = document.getElementById('messageModal');
+​const modal = document.getElementById('messageModal');
 const modalCard = document.getElementById('modalCard');
-modal.classList.add('active');
+​modal.classList.add('active');
 modalCard.classList.add('show');
 }
-function closeMessageModal() {
+​function closeMessageModal() {
 const modal = document.getElementById('messageModal');
 const modalCard = document.getElementById('modalCard');
-modalCard.classList.remove('show');
+​modalCard.classList.remove('show');
 setTimeout(() => {
 modal.classList.remove('active');
 }, 200);
 }
-document.getElementById('messageModal').addEventListener('click', function(e) {
+​document.getElementById('messageModal').addEventListener('click', function(e) {
 if (e.target === this) {
 closeMessageModal();
 }
 });
-window.onload = function() {
+​window.onload = function() {
 createFloatingHearts();
 };
 </script>
 </body>
-  </html>
+</html>
